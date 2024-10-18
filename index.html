@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File Keren</title>
+    <style>* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Ubuntu, sans-serif
+}
+
+html {
+    background: url("https://i.pinimg.com/originals/73/df/ac/73dfac0f399961c5258600e3581325cf.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover
+}
+
+body {
+    text-align: center;
+    padding: 50px;
+    margin: 0;
+    min-height: 100vh;
+}
+h1 {
+color: white; 
+    text-shadow: 
+        -1px -1px 0 black,  
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black; 
+}
+        .download-container {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px dashed #fc68f3;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5); /* Tambahin transparansi biar teks lebih jelas */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 15px 25px;
+            margin: 10px;
+            background-color: #fc68f3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>FREE VPN UNTUK BUAT RW</h1>
+    <div class="download-container">
+        <button class="download-btn" data-file="hongkong" onclick="window.location.href='file/hongkong-by-alfa.conf'">HONGKONG 🇭🇰</button>
+        <p class="download-count" style="color: white; 
+    text-shadow: 
+        -1px -1px 0 black,  
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black; ">Downloaded: <span class="count">0</span></p>
+    </div>
+    <div class="download-container">
+        <button class="download-btn" data-file="indonesia" onclick="window.location.href='file/indonesia-by-alfa.conf'">INDONESIA 🇮🇩</button>
+        <p class="download-count" style="color: white; 
+    text-shadow: 
+        -1px -1px 0 black,  
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black; ">Downloaded: <span class="count">0</span></p>
+        </div>
+        <a href="/file/kamboja-by-alfa.conf" class="download-btn" download>KAMBOJA 🇰🇭</a>
+        <a href="/file/filipina-by-alfa.conf" class="download-btn" download>FILIPINA 🇵🇭</a>
+        <a href="/file/india-by-alfa.conf" class="download-btn" download>INDIA 🇮🇳</a>
+        <a href="/file/bangladesh-by-alfa.conf" class="download-btn" download>BANGLADESH 🇧🇩</a>
+        <a href="/file/jepang-by-alfa.conf" class="download-btn" download>JEPANG 🇯🇵</a>
+        <a href="/file/malaysia-by-alfa.conf" class="download-btn" download>MALAYSIA 🇲🇾</a>
+        <div style="text-align: center; margin-top: 20px;">
+    <a href="https://wa.me/6287715768324" style="font-size: 12px; color: white; text-decoration: none; background-color: rgba(252, 104, 243, 0.9); padding: 5px 10px; border-radius: 5px;">Wa Atmin 🗿</a>
+</div>
+    </div>
+    <div>
+    <a style="color: white; 
+    text-shadow: 
+        -1px -1px 0 black,  
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black; ">VPN GA KONEK LAPOR ATMIN</a>
+    </div>
+</body>
+    <script>
+        document.querySelectorAll('.download-btn').forEach(button => {
+            const fileName = button.getAttribute('data-file');
+            const countElement = button.nextElementSibling.querySelector('.count');
+
+            // Load existing count from localStorage
+            const existingCount = localStorage.getItem(fileName) || 0;
+            countElement.textContent = existingCount;
+
+            button.addEventListener('click', () => {
+                // Increment the count
+                const newCount = parseInt(existingCount) + 1;
+                localStorage.setItem(fileName, newCount);
+                countElement.textContent = newCount;
+            });
+        });
+    </script>
+</html>

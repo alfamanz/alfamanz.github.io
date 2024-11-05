@@ -61,11 +61,16 @@ sudo mv danted.conf /etc/danted.conf
 # echo -e "${ungu}Buat password untuk socks5$putih"
 # sudo passwd $usernya
 sudo iptables -A INPUT -p tcp --dport 1080 -j ACCEPT
-sudo ufw enable
 sudo ufw allow 1080/tcp
 sudo ufw allow 22
 sudo systemctl restart danted
-echo -e "$sks Install Socks5 Telah Berhasil"
 sleep 2
 clear
-echo -e "Socks5 Telah Siap digunakan : ${hijau}$ip:1080$putih"
+
+OUTPUT=$(curl -v -x socks5://${$ip}:1080 http://google.com/)
+
+if echo "$OUTPUT" | grep -q "200 OK"; then
+  echo "SOCKS5 $ip:1080 ONLINE"
+else
+  echo "SOCKS5 $ip:1080 OFFLINE"
+fi

@@ -67,7 +67,7 @@ sudo systemctl restart danted
 sleep 2
 clear
 
-OUTPUT=$(curl -v -x socks5://${$ip}:1080 http://google.com/)
+OUTPUT=$(curl -v -x socks5://$ip:1080 http://google.com/)
 
 if echo "$OUTPUT" | grep -q "200 OK"; then
   echo "SOCKS5 $ip:1080 ONLINE"

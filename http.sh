@@ -1,4 +1,4 @@
-ip=(curl ifconfig.me)
+ip=$(curl ifconfig.me)
 sudo apt update -y 
 sudo apt upgrade -y
 sudo apt install squid -y

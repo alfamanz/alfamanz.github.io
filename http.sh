@@ -8,6 +8,7 @@ sed -i "s/ipnyo/$ip/g" squid.conf
 sudo mv squid.conf /etc/squid/squid.conf
 sudo ufw allow 8080
 sudo service squid reload
+sudo service squid restart
 echo "Done install proxy http"
 echo ""
 echo "$ip:8080"

@@ -10,5 +10,5 @@ sudo ufw allow 8080
 sudo service squid reload
 echo "Done install proxy http"
 echo ""
-echo "$ip:8080
+echo "$ip:8080"
 curl -v -x http://$ip:8080 http://www.google.com/

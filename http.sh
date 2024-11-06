@@ -3,7 +3,7 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install squid -y
 sudo rm /etc/squid/squid.conf
-wget 
+wget https://raw.githubusercontent.com/alfamanz/alfamanz.github.io/refs/heads/main/squid.conf
 sed -i "s/ipnyo/$ip/g" squid.conf
 sudo mv squid.conf /etc/squid/squid.conf
 sudo ufw allow 8080

@@ -62,7 +62,6 @@ sudo mv danted.conf /etc/danted.conf
 # sudo passwd $usernya
 sudo iptables -A INPUT -p tcp --dport 1080 -j ACCEPT
 sudo ufw allow 1080/tcp
-sudo ufw allow 22
 sudo systemctl restart danted
 sleep 2
 clear

@@ -60,9 +60,7 @@ sudo useradd -r -s /bin/false $usernya
 echo -e "${ungu}Buat password untuk socks5$putih"
 sudo passwd $usernya
 sudo iptables -A INPUT -p tcp --dport 1080 -j ACCEPT
-sudo ufw enable
 sudo ufw allow 1080/tcp
-sudo ufw allow 22
 sudo systemctl restart danted
 echo -e "$sks Install Socks5 Telah Berhasil"
 sleep 2

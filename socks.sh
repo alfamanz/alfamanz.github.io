@@ -66,4 +66,5 @@ echo -e "$sks Install Socks5 Telah Berhasil"
 sleep 2
 clear
 echo -e "Socks5 Telah Siap digunakan : ${hijau}$ip:1080$putih"
-sudo curl -v -x socks5://kim:kim@$ip:1080 http://google.com/
+# sudo curl -v -x socks5://kim:kim@$ip:1080 http://google.com/
+curl -v -x socks5://kim:kim@$ip:1080 http://www.google.com/

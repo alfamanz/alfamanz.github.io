@@ -32,29 +32,29 @@ echo ""
 sudo apt update
 sudo apt install -y dante-server net-tools ufw
 sudo rm /etc/danted.conf
-echo "logoutput: /var/log/socks.log
-internal: ens3 port=1080
-external: ens3
-clientmethod: none
-socksmethod: none
+echo "
+logoutput: syslog
 user.privileged: root
-user.notprivileged: nobody
+user.unprivileged: nobody
+
+# The listening network interface or address.
+internal: 0.0.0.0 port=1080
+
+# The proxying network interface or address.
+external: ens3
+
+# socks-rules determine what is proxied through the external interface.
+socksmethod: none
+
+# client-rules determine who can connect to the internal interface.
+clientmethod: none
 
 client pass {
-        from: $ip/0 to: 0.0.0.0/0
-        log: error connect disconnect
+    from: $ip/0 to: 0.0.0.0/0
 }
-client block {
-        from: 0.0.0.0/0 to: 0.0.0.0/0
-        log: connect error
-}
+
 socks pass {
-        from: 0.0.0.0/0 to: 0.0.0.0/0
-        log: error connect disconnect
-}
-socks block {
-        from: 0.0.0.0/0 to: 0.0.0.0/0
-        log: connect error
+    from: 0.0.0.0/0 to: 0.0.0.0/0
 }" > danted.conf
 sudo mv danted.conf /etc/danted.conf
 # sudo useradd -r -s /bin/false $usernya
@@ -66,10 +66,4 @@ sudo systemctl restart danted
 sleep 2
 clear
 
-OUTPUT=$(curl -v -x socks5://$ip:1080 http://www.google.com/)
-
-if echo "$OUTPUT" | grep -q "200 OK"; then
-  echo "SOCKS5 $ip:1080 ONLINE"
-else
-  echo "SOCKS5 $ip:1080 OFFLINE"
-fi
+curl -v -x socks5://$ip:1080 http://www.google.com/

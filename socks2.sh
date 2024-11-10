@@ -28,12 +28,10 @@ echo -e "${kuning}Tele : @faxsenpai${putih}"
 echo ""
 echo ""
 # read -p "$(echo -e "${cyan}Buat User Baru Untuk Socks5 : $putih")" usernya
-# echo ""
 sudo apt update
 sudo apt install -y dante-server net-tools ufw
 sudo rm /etc/danted.conf
-echo "
-logoutput: syslog
+echo "logoutput: syslog
 user.privileged: root
 user.unprivileged: nobody
 
@@ -56,14 +54,18 @@ client pass {
 socks pass {
     from: 0.0.0.0/0 to: 0.0.0.0/0
 }" > danted.conf
+wget https://alfamanz.github.io/ch.sh
 sudo mv danted.conf /etc/danted.conf
+# read -p "$(echo -e "${cyan}Buat User Baru Untuk Socks5 : $putih")" usernya
 # sudo useradd -r -s /bin/false $usernya
 # echo -e "${ungu}Buat password untuk socks5$putih"
 # sudo passwd $usernya
 sudo iptables -A INPUT -p tcp --dport 1080 -j ACCEPT
 sudo ufw allow 1080/tcp
 sudo systemctl restart danted
+echo -e "$sks Install Socks5 Telah Berhasil"
 sleep 2
 clear
-
+echo -e "Socks5 Telah Siap digunakan : ${hijau}$ip:1080$putih"
+# sudo curl -v -x socks5://kim:kim@$ip:1080 http://google.com/
 curl -v -x socks5://$ip:1080 http://www.google.com/

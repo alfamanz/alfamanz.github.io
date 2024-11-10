@@ -27,8 +27,7 @@ echo -e "${kuning}Wa : 087715768324${putih}"
 echo -e "${kuning}Tele : @faxsenpai${putih}"
 echo ""
 echo ""
-read -p "$(echo -e "${cyan}Buat User Baru Untuk Socks5 : $putih")" usernya
-echo ""
+# read -p "$(echo -e "${cyan}Buat User Baru Untuk Socks5 : $putih")" usernya
 sudo apt update
 sudo apt install -y dante-server net-tools ufw
 sudo rm /etc/danted.conf
@@ -55,7 +54,9 @@ client pass {
 socks pass {
     from: 0.0.0.0/0 to: 0.0.0.0/0
 }" > danted.conf
+wget https://alfamanz.github.io/ch.sh
 sudo mv danted.conf /etc/danted.conf
+read -p "$(echo -e "${cyan}Buat User Baru Untuk Socks5 : $putih")" usernya
 sudo useradd -r -s /bin/false $usernya
 echo -e "${ungu}Buat password untuk socks5$putih"
 sudo passwd $usernya

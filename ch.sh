@@ -25,7 +25,7 @@ socks pass {
     from: 0.0.0.0/0 to: 0.0.0.0/0
 }" > danted.conf
 sudo mv danted.conf /etc/danted.conf
-service danted reload
+sudo service danted reload
 clear
 echo "SUKSES CHANGE IP"
 curl -v -x socks5://kim:kim@$ip:1080 http://www.google.com/

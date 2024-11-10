@@ -1,5 +1,5 @@
 #
-ip=(curl ifconfig.me)
+ip=$(curl ifconfig.me)
 
 echo "logoutput: syslog
 user.privileged: root
